@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-subtitle>DASHBOARD <a class="out" (click)="signoutAction()">Signout</a></ion-subtitle>
+    </ion-buttons>
+    <ion-title><img src="./../assets/img/whereru_logo.png" alt="logo" style="width:56px;" /></ion-title>    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card-header>
+    <ion-card-title>
+      <img src="./../assets/img/whereru_logo_gray.png" alt="logo" style="width:100px;" />
+    </ion-card-title>
+    <ion-card-subtitle>Dashboard</ion-card-subtitle>        
+  </ion-card-header>
+<ion-item>
+  <ion-text>{{dashboardCoreInfo}}</ion-text>
+</ion-item>
+</ion-content>

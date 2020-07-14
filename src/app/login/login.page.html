@@ -1,0 +1,168 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-subtitle>LOGIN <a class="out" (click)="signoutAction()">Signout</a></ion-subtitle>
+    </ion-buttons>
+    <ion-title><img src="./../assets/img/whereru_logo.png" alt="logo" style="width:56px;" /></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-info>text</ion-info>
+
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Misuka</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <div id="container">
+    <ion-card *ngIf="loginPage">
+      <ion-card-header>
+        <ion-card-title>
+          <img src="./../assets/img/whereru_logo_gray.png" alt="logo" style="width:100px;" />
+        </ion-card-title>
+        <ion-card-subtitle>LOGIN</ion-card-subtitle>        
+      </ion-card-header>
+
+
+      <ion-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="loginFormValue()">
+          <ion-item>
+            <ion-label position="floating">Email Id</ion-label>
+            <ion-input type="email" formControlName="emailId"></ion-input>
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.emailid">
+              <div class="error-message" *ngIf="loginForm.get('emailId').hasError(validation.type) && (loginForm.get('emailId').dirty || loginForm.get('emailId').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+          <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.password">
+              <div class="error-message" *ngIf="loginForm.get('password').hasError(validation.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+          <ion-item>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-6>
+                  <ion-button type="submit" color="primary" expand="full" size="medium" [disabled]="!loginForm.valid">
+                    Login</ion-button>
+                </ion-col>
+                <ion-col col-6>
+                  <ion-button type="button" color="light" expand="full" size="medium">Cancel</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+        </form>
+      </ion-card-content>
+    </ion-card>
+
+
+    <ion-card *ngIf="regPage">
+      <ion-card-header>
+        <ion-card-title>
+          <img src="./../assets/img/whereru_logo_gray.png" alt="logo" style="width:100px;" />
+        </ion-card-title>
+        <ion-card-subtitle>REGISTER</ion-card-subtitle>        
+      </ion-card-header>
+
+      <ion-card-content>
+        <form [formGroup]="registerForm" (ngSubmit)="registerFormValue()">
+          <ion-item>
+            <ion-label position="floating">Full Name</ion-label>
+            <ion-input type="text" formControlName="fullName"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Email Id</ion-label>
+            <ion-input type="email" formControlName="emailId"></ion-input>
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.emailid">
+              <div class="error-message" *ngIf="registerForm.get('emailId').hasError(validation.type) && (registerForm.get('emailId').dirty || registerForm.get('emailId').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+          <ion-item>
+            <ion-label position="floating">Phone Number</ion-label>
+            <ion-input type="text" formControlName="phoneNumber"></ion-input>
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.phonenumber">
+              <div class="error-message" *ngIf="registerForm.get('phoneNumber').hasError(validation.type) && (registerForm.get('phoneNumber').dirty || registerForm.get('phoneNumber').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+          <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.password">
+              <div class="error-message" *ngIf="registerForm.get('password').hasError(validation.type) && (registerForm.get('password').dirty || registerForm.get('password').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+          <ion-item>
+            <ion-label position="floating">Confirm Password</ion-label>
+            <ion-input type="password" formControlName="confirmPassword"></ion-input>
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.confirmpassword">
+              <div class="error-message" *ngIf="registerForm.get('confirmPassword').hasError(validation.type) && (registerForm.get('confirmPassword').dirty)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+          <ion-item>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-6>
+                  <ion-button type="submit" color="primary" expand="full" size="medium" [disabled]="!registerForm.valid">
+                    Signup</ion-button>
+                </ion-col>
+                <ion-col col-6>
+                  <ion-button type="button" color="light" expand="full" size="medium">Cancel</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-toolbar>
+      <ion-buttons slot="secondary">
+        <ion-button (click)="loginTab($event)">
+          <ion-icon slot="icon-only" name="log-in-outline"></ion-icon>
+        </ion-button>
+        <ion-button (click)="regTab($event)">
+          <ion-icon slot="icon-only" name="beer-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-toolbar>
+</ion-footer>

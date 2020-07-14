@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-subtitle>FAVORITES <a class="out" (click)="signoutAction()">Signout</a></ion-subtitle>
+    </ion-buttons>
+    <ion-title><img src="./../assets/img/whereru_logo.png" alt="logo" style="width:56px;" /></ion-title>    
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Misuka</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-card-header>
+      <ion-card-title>
+        <img src="./../assets/img/whereru_logo.png" alt="logo" style="width:100px;" />
+      </ion-card-title>
+      <ion-card-subtitle>FAVORITES</ion-card-subtitle>        
+    </ion-card-header>
+    <!-- <strong class="capitalize">{{ folder }}1245</strong> -->
+    <!-- <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p> -->
+  </div>
+</ion-content>
